@@ -221,7 +221,7 @@ const redirectToGithubProfile = () => {
       </div>
      </section>
 
-     <section id='about' style={{marginTop: '40px'}}>
+     <section id='about' style={{marginTop: '80px'}}>
       <p>Get To Know More</p>
       <h1 >About Me</h1>
       <div className='aboutdetails'>
@@ -459,7 +459,7 @@ const redirectToGithubProfile = () => {
         </div>
       </div>
      </section>
-     <footer style={{marginTop: '40px'}}>
+     <footer style={{marginTop: '70px'}}>
       <p>Copyright @#169; 2023 Kennedy Mutuku.All Rights Reserved</p>
      </footer>
     </>

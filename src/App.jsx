@@ -11,11 +11,28 @@ import linkedin from './assets/linkedin.png'
 import snapstore from './assets/snapstore.png'
 import github from './assets/github.png'
 import email from './assets/email.png'
+import cv from './assets/cv.pdf'
 import realestate from './assets/realestatemanagementsystem.jpg'
 import './App.css'
 
 
 function App() {
+
+  // const cv =  import.meta.env.DEV ? './assets/cv.pdf' : import.meta.url + './assets/cv.pdf';
+
+  console.log(cv);
+
+
+    const handleDownload = () => {
+      const link = document.createElement('a');
+      link.href = cv // Path to your PDF file
+      link.download = 'resume.pdf'; // Name to be downloaded
+      link.click();
+    }
+
+
+
+
 
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
@@ -180,7 +197,7 @@ const redirectToGithubProfile = () => {
         <h1 className='title'>Kennedy Mutuku</h1>
         <p className='sectiontextp2'>Fullstack Developer</p>
         <div className='btn-container'>
-          <button className='btn btn-color-2'>
+          <button className='btn btn-color-2' onClick={handleDownload}>
             Download CV
           </button>
           <button className='btn btn-color-1'onClick={scrollToContact}>

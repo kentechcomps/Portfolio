@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
+import { FaBars, FaTimes } from 'react-icons/fa';
 import imge from './assets/img.png'
 import arrow from './assets/downarrow.png'
 import education from './assets/education.png'
@@ -15,7 +16,19 @@ import './App.css'
 
 
 function App() {
- const [menuOpen , setmenuOpen] = useState(false)
+
+  const [active, setActive] = useState("nav__menu");
+  const [icon, setIcon] = useState("nav__toggler");
+  const navToggle = () => {
+    if (active === "nav__menu") {
+      setActive("nav__menu nav__active");
+    } else setActive("nav__menu");
+
+    // Icon Toggler
+    if (icon === "nav__toggler") {
+      setIcon("nav__toggler toggle");
+    } else setIcon("nav__toggler");
+  };
 
  const scrollToContact = () => {
   const contactSection = document.getElementById('contact'); // Assuming the contact section has an id of 'contact'
@@ -55,11 +68,6 @@ const redirectToGithubProfile = () => {
  }
  
 
- function tooglemenu(){
-
-      setmenuOpen(!menuOpen)
-   }
-
 
   return (
     <>
@@ -77,9 +85,21 @@ const redirectToGithubProfile = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar> */}
+    {/* <header>
+      <h3>Kennedy Mutuku</h3>
+      <nav>
+        <a href='#about' >About</a>
+        <a href='#experience' >Experience</a>
+        <a href='#projects' >Projects</a>
+        <a href='#contact' >Contact</a>
+        <button className='nav-btn nav-close-btn' onClick={showNavbar}> <FaTimes/></button>
+      </nav>
+      <button className='nav-btn' onClick={showNavbar}> <FaBars/></button>
+    </header>
+     */}
 
 
-     <nav id='desktop-nav'>
+     {/* <nav id='desktop-nav'>
       <div className='logo'>
          Kennedy Mutuku 
       </div>
@@ -113,7 +133,42 @@ const redirectToGithubProfile = () => {
 
         </div>
       </div>
-     </nav>
+     </nav> */}
+     <nav className="nav">
+      <a href="#" className="nav__brand">
+        Kennedy Mutuku
+      </a>
+      <ul className={active}>
+     
+        <li className="nav__item">
+          <a href="#about" className="nav__link">
+            About
+          </a>
+        </li>
+        <li className="nav__item">
+          <a href="#experience" className="nav__link">
+            EXperience
+          </a>
+        </li>
+        <li className="nav__item">
+          <a href="#projects" className="nav__link">
+            Projects
+          </a>
+        </li>
+        <li className="nav__item">
+          <a href="#Contact" className="nav__link">
+            Contact
+          </a>
+        </li>
+      </ul>
+      <div onClick={navToggle} className={icon}>
+        <div className="line1"></div>
+        <div className="line2"></div>
+        <div className="line3"></div>
+      </div>
+    </nav>
+
+
      <section id='profile' style={{ 
                                    height: '100'
     }} >
@@ -149,7 +204,7 @@ const redirectToGithubProfile = () => {
       </div>
      </section>
 
-     <section id='about'>
+     <section id='about' style={{marginTop: '40px'}}>
       <p>Get To Know More</p>
       <h1 >About Me</h1>
       <div className='aboutdetails'>
@@ -284,12 +339,6 @@ const redirectToGithubProfile = () => {
         </div>
        </div>
 
-       <img src={arrow}
-      id='arrow2'
-      className='icon'
-       alt='Arrow icon'
-        onClick={location.href='./#experience'}
-      ></img>
      </section>
      <section id='projects'>
       <p>Browse My Recent</p>
@@ -364,17 +413,12 @@ const redirectToGithubProfile = () => {
         </div>
         </div>
       
-      <img src={arrow}
-      id='arrow2'
-      className='icon'
-       alt='Arrow icon'
-        onClick={location.href='./#experience'}
-      ></img>
+      
      </section>
      <section id='contact'>
       <p>Get in touch</p>
       <h1>Contact Me</h1>
-      <div className='Contactinfouppercontainer'>
+      <div className='Contactinfouppercontainer' style={{overflowX: 'hidden'}}>
         <div className='contactinfocontainer'>
            <img src={email}
            alt='Email icon'
@@ -398,7 +442,7 @@ const redirectToGithubProfile = () => {
         </div>
       </div>
      </section>
-     <footer>
+     <footer style={{marginTop: '40px'}}>
       <p>Copyright @#169; 2023 Kennedy Mutuku.All Rights Reserved</p>
      </footer>
     </>

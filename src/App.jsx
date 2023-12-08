@@ -156,7 +156,7 @@ const redirectToGithubProfile = () => {
           </a>
         </li>
         <li className="nav__item">
-          <a href="#Contact" className="nav__link">
+          <a href="#contact" className="nav__link">
             Contact
           </a>
         </li>

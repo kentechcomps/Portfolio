@@ -1,4 +1,8 @@
-import { useState } from 'react'
+import React, {useState} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHamburger } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { FaBars, FaTimes } from 'react-icons/fa';
 import imge from './assets/img.png'
@@ -13,6 +17,8 @@ import github from './assets/github.png'
 import email from './assets/email.png'
 import cv from './assets/cv.pdf'
 import realestate from './assets/realestatemanagementsystem.jpg'
+import banking from './assets/banking.jpg'
+import bursary from './assets/bursary.png'
 import './App.css'
 
 
@@ -33,9 +39,11 @@ function App() {
 
 
 
-
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
+
   const navToggle = () => {
     if (active === "nav__menu") {
       setActive("nav__menu nav__active");
@@ -83,75 +91,29 @@ const redirectToGithubProfile = () => {
  const redirectTolostandfound =() =>{
   window.open('https://team-lost-and-found-frontend.vercel.app' , '_blank')
  }
- 
 
+ const redirectTobursarygithub = () =>{
+  window.open('https://github.com/kenchezken/Masingabursaryfrontend', '_blank')
+}
+
+const redirectTobursary = () =>{
+  window.open('https://bursaryapplication.onrender.com', '_blank')
+}
+
+const redirectTobankinggithub=()=>{
+  window.open('https://github.com/kentechcomps/Banking', '_blank')
+}
+
+const redirectTobanking=()=>{
+  window.open('https://banking-brown.vercel.app/', '_blank')
+}
+
+ 
 
   return (
     <>
-{/* <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand href="#home" style={{marginRight: '600px'}}>Kennedy Mutuku</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ml-auto">
-            <Nav.Link href="#about">About</Nav.Link>
-            <Nav.Link href="#experience">Experience</Nav.Link>
-            <Nav.Link href="#projects">Projects</Nav.Link>
-            <Nav.Link href="#contact">Contact</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar> */}
-    {/* <header>
-      <h3>Kennedy Mutuku</h3>
-      <nav>
-        <a href='#about' >About</a>
-        <a href='#experience' >Experience</a>
-        <a href='#projects' >Projects</a>
-        <a href='#contact' >Contact</a>
-        <button className='nav-btn nav-close-btn' onClick={showNavbar}> <FaTimes/></button>
-      </nav>
-      <button className='nav-btn' onClick={showNavbar}> <FaBars/></button>
-    </header>
-     */}
 
-
-     {/* <nav id='desktop-nav'>
-      <div className='logo'>
-         Kennedy Mutuku 
-      </div>
-      <div>
-      <ul className='nav-links'>
-        <li><a href='#about'>About</a></li>
-        <li><a href='#experience'>Experience</a></li>
-        <li><a href='#projects'>Projects</a></li>
-        <li><a href='#contact'>Contact</a></li>
-      </ul>
-      </div>
-     </nav>
-     <nav id='hamburger-nav'>
-     <div className='logo'>
-         Kennedy Mutuku 
-      </div>
-      <div className='hamburger-menu'>
-        <div className='hamburger-icon' onClick={tooglemenu}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div className={`menu-links ${menuOpen ? 'open' : ''}`}>
-          <ul>
-          <li><a href='#about' onClick={tooglemenu}>About</a></li>
-        <li><a href='#experience' onClick={tooglemenu}>Experience</a></li>
-        <li><a href='#projects' onClick={tooglemenu}>Projects</a></li>
-        <li><a href='#Contact' onClick={tooglemenu}>Contact</a></li>
-          </ul>
-        
-
-        </div>
-      </div>
-     </nav> */}
-     <nav className="nav">
+     {/* <nav className="nav">
       <a href="#" className="nav__brand">
         Kennedy Mutuku
       </a>
@@ -183,7 +145,98 @@ const redirectToGithubProfile = () => {
         <div className="line2"></div>
         <div className="line3"></div>
       </div>
-    </nav>
+    </nav> */}
+
+
+
+
+
+
+
+
+     <nav className="navbar">
+        <div className="nav-container"
+        >
+           
+          <a  className="nav-logo">
+            <span style={{
+              fontSize: '20px',
+              fontWeight: 'bolder' ,
+              marginLeft: '5px'
+            }}>Kennedy Mutuku</span>
+            {/* <i className="fas fa-code"></i> */}
+            
+          </a>
+
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <a
+              
+                href="#about"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                About
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                href="#experience"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Experience
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                href="#projects"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Projects
+              </a>
+            </li>
+            {/* <li className="nav-item">
+              <a
+                exact
+                to="/Contactus"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Contact us
+              </a>
+            </li> */}
+            <li className="nav-item">
+              <a
+                href="#contact"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                 Contact
+              </a>
+            </li>
+          </ul>
+          <div className="nav-icon" onClick={handleClick}>
+            {/* <i className={click ? "fas fa-times" : "fas fa-bars"}></i> */}
+
+            {click ? (
+              <span className="icon">
+                 <FontAwesomeIcon icon={faHamburger} />
+              </span>
+            ) : (
+              <span className="icon">
+                <FontAwesomeIcon icon={faHamburger}/>
+              </span>
+            )}
+          </div>
+        </div>
+      </nav>
 
 
      <section id='profile' style={{ 
@@ -428,6 +481,62 @@ const redirectToGithubProfile = () => {
             </button>
          </div>
         </div>
+
+        <div className='details color-container'>
+         <div className='articlecontainer'>
+             <img
+             src={bursary}
+             alt='Project1'
+             className='projectimage'
+             ></img>
+         </div>
+         <h2 className='projecttitle'>
+  Masinga Constituency BursaryManagement System 
+  <span style={{ color: 'red' ,
+    fontSize: '10px' 
+              
+}}>*currently on use</span>
+</h2>
+         <div className='btn-container'>
+            <button className='btn btn-color-2 project-btn'
+            onClick={redirectTobursarygithub}
+            >
+                Github
+            </button>
+            <button className='btn btn-color-2 project-btn'
+            onClick={redirectTobursary}
+            >
+                Live Demo
+            </button>
+         </div>
+        </div>
+
+        <div className='details color-container'>
+         <div className='articlecontainer'>
+             <img
+             src={banking}
+             alt='Project1'
+             className='projectimage'
+             ></img>
+         </div>
+         <h2 className='projecttitle'>Kentechbanking System</h2>
+         <div className='btn-container'>
+            <button className='btn btn-color-2 project-btn'
+            onClick={redirectTobankinggithub}
+            >
+                Github
+            </button>
+            <button className='btn btn-color-2 project-btn'
+            onClick={redirectTobanking}
+            >
+                Live Demo
+            </button>
+         </div>
+        </div>
+
+
+
+
         </div>
       
       

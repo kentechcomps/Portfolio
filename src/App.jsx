@@ -1,11 +1,16 @@
 import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHamburger } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { FaBars, FaTimes } from 'react-icons/fa';
+
 import imge from './assets/img.png'
+
+
 import arrow from './assets/downarrow.png'
+
 import education from './assets/education.png'
 import experience from './assets/experience.png'
 import lostfound from './assets/lostandfound.jpg'
@@ -226,11 +231,11 @@ const redirectTobanking=()=>{
 
             {click ? (
               <span className="icon">
-                 <FontAwesomeIcon icon={faHamburger} />
+                 <FontAwesomeIcon icon={faX} />
               </span>
             ) : (
               <span className="icon">
-                <FontAwesomeIcon icon={faHamburger}/>
+                <FontAwesomeIcon icon={faBars}/>
               </span>
             )}
           </div>
@@ -240,11 +245,15 @@ const redirectTobanking=()=>{
 
      <section id='profile' style={{ 
                                    height: '100'
+                                  
     }} >
-      <div className='piccontainer'>
-        <img src={imge}></img>
+      <div className='piccontainer' >
+        <img src={imge} 
+        ></img>
       </div>
-      <div className='section_text'>
+      <div className='section_text'
+  
+      >
         <p className='sectiontextp1'>Hello , I'm</p>
         <h1 className='title'>Kennedy Mutuku</h1>
         <p className='sectiontextp2'>Fullstack Developer</p>
